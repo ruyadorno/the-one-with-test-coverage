@@ -54,4 +54,20 @@ describe('server', () => {
     startServer({ http, port: 3000 })
     expect(end.mock.calls[0][0]).toEqual('404 - Not Found\n')
   })
+
+  it('should readme content on /readme', () => {
+    const end = jest.fn()
+    const http = {
+      createServer: (cb) => {
+        cb({ url: '/readme' }, { end })
+
+        return {
+          listen: jest.fn()
+        }
+      }
+    }
+
+    startServer({ http, port: 3000 })
+    expect(end.mock.calls[0][0]).toMatchSnapshot()
+  })
 })
