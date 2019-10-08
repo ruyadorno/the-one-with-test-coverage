@@ -1,4 +1,5 @@
 const { log, notFound, readme } = require('./App')
+const startServer = require('./server')
 
 const info = require('./log')
 
@@ -22,5 +23,19 @@ describe('App', () => {
     })).toEqual('')
 
     expect(info.log.mock.calls).toEqual([['info: ', '/foo']])
+  })
+})
+
+describe('server', () => {
+  it('should start listening to provided port', () => {
+    const listen = jest.fn()
+    const http = {
+      createServer: () => ({
+        listen
+      })
+    }
+
+    startServer({ http, port: 3000 })
+    expect(listen.mock.calls[0][0]).toEqual(3000)
   })
 })
