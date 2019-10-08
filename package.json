@@ -8,5 +8,8 @@
     "test": "jest --coverage"
   },
   "author": "Ruy Adorno",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
 }
