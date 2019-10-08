@@ -39,9 +39,22 @@ describe('server', () => {
     expect(listen.mock.calls[0][0]).toEqual(3000)
   })
 
+  it('should print correct message on server startup', () => {
+    const cb = jest.fn()
+    const http = {
+      createServer: () => ({
+        listen: (port, cb) => {
+          cb()
+        }
+      })
+    }
+
+    startServer({ http, port: 3000 })
+    expect(info.log.mock.calls[1][0]).toEqual('Server is listening on 3000')
+  })
+
   it('should log error on listen error', () => {
     const cb = jest.fn()
-    const listen = jest.fn()
     const http = {
       createServer: () => ({
         listen: (port, cb) => {
