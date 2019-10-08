@@ -70,4 +70,20 @@ describe('server', () => {
     startServer({ http, port: 3000 })
     expect(end.mock.calls[0][0]).toMatchSnapshot()
   })
+
+  it('should log on /log', () => {
+    const end = jest.fn()
+    const http = {
+      createServer: (cb) => {
+        cb({ url: '/log?foo' }, { end })
+
+        return {
+          listen: jest.fn()
+        }
+      }
+    }
+
+    startServer({ http, port: 3000 })
+    expect(end.mock.calls[0][0]).toEqual('')
+  })
 })
