@@ -38,4 +38,20 @@ describe('server', () => {
     startServer({ http, port: 3000 })
     expect(listen.mock.calls[0][0]).toEqual(3000)
   })
+
+  it('should return 404 on no path provided', () => {
+    const end = jest.fn()
+    const http = {
+      createServer: (cb) => {
+        cb({ url: '' }, { end })
+
+        return {
+          listen: jest.fn()
+        }
+      }
+    }
+
+    startServer({ http, port: 3000 })
+    expect(end.mock.calls[0][0]).toEqual('404 - Not Found\n')
+  })
 })
