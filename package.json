@@ -4,7 +4,7 @@
   "description": "Simplistic server implementation with multiple variations of tests",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "test": "jest --coverage"
   },
   "author": "Ruy Adorno",
