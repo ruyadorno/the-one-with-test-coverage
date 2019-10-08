@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "pretest": "npm start &>/dev/null &",
-    "test": "sleep 1; curl http://localhost:3000/readme --fail",
-    "posttest": "fkill :3000 &> /dev/null; exit 0"
+    "test": "tap test.js"
   },
   "author": "Ruy Adorno",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "tap": "^14.6.9"
+  }
 }
