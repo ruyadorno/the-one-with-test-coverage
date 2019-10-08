@@ -1,8 +1,10 @@
 const fs = require('fs')
 
+const info = require('./log')
+
 
 const log = (req) => (
-  console.log('info: ', req.url),
+  info.log('info: ', req.url),
   ''
 )
 
