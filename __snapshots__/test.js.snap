@@ -10,6 +10,8 @@ The goal is to provide pratical examples of testing patterns that can help you i
 "
 `;
 
+exports[`server should log error on listen error 1`] = `[Error: ERR]`;
+
 exports[`server should readme content on /readme 1`] = `
 "# the-one-with-test-coverage
 

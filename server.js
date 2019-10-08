@@ -1,4 +1,5 @@
 const { log, notFound, readme } = require('./App')
+const info = require('./log')
 
 
 function startServer({ http, port }) {
@@ -17,10 +18,10 @@ function startServer({ http, port }) {
 
   server.listen(port, (err) => {
     if (err) {
-      return console.error(err)
+      return info.error(err)
     }
 
-    console.log(`Server is listening on ${port}`)
+    info.log(`Server is listening on ${port}`)
   })
 }
 

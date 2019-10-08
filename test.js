@@ -39,6 +39,20 @@ describe('server', () => {
     expect(listen.mock.calls[0][0]).toEqual(3000)
   })
 
+  it('should log error on listen error', () => {
+    const cb = jest.fn()
+    const listen = jest.fn()
+    const http = {
+      createServer: () => ({
+        listen: (port, cb) => {
+          cb(new Error('ERR'))
+        }
+      })
+    }
+
+    startServer({ http, port: 3000 })
+    expect(info.error.mock.calls[0][0]).toMatchSnapshot()
+  })
   it('should return 404 on no path provided', () => {
     const end = jest.fn()
     const http = {
