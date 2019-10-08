@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "pretest": "npm start &>/dev/null &",
-    "test": "sleep 1; curl http://localhost:3000/readme --fail",
-    "posttest": "fkill :3000 &> /dev/null; exit 0"
+    "test": "jest --coverage"
   },
   "author": "Ruy Adorno",
   "license": "ISC"
