@@ -1,10 +1,13 @@
 {
   "name": "the-one-with-test-coverage",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simplistic server implementation with multiple variations of tests",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "pretest": "npm start &>/dev/null &",
+    "test": "sleep 1; curl http://localhost:3000/readme --fail",
+    "posttest": "fkill :3000 &> /dev/null; exit 0"
   },
   "author": "Ruy Adorno",
   "license": "ISC"
