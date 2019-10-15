@@ -14,3 +14,7 @@ Simply navigate the **git history** of this repository using the client of your 
 
 The [jest](./tree/jest) branch contains the diverse solutions presented during the demo using the [Jest](https://jestjs.io/) testing framework, while the [tap](./tree/tap) branch contains the base setup for tests using [Node Tap](https://node-tap.org/) framework.
 
+## License
+
+[MIT](LICENSE) © 2019 [Ruy Adorno](http://ruyadorno.com)
+
